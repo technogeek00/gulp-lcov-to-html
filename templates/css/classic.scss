@@ -1,0 +1,279 @@
+$link-base: #284FA8;
+$link-active: #FF0040;
+$link-visited: #00CB40;
+
+$solid-neutral-foreground: #6688D4;
+$solid-neutral-background: #DAE7FE;
+
+$solid-fail-foreground: #FF352F;
+$solid-fail-background: #FF0000;
+
+$solid-warn-foreground: #FFE050;
+$solid-warn-background: #FFE050;
+
+$solid-pass-foreground: #1BEA59;
+$solid-pass-background: #A7FC9D;
+
+$opaque-pass-background: #CAD7FE;
+$opaque-fail-background: #FF6230;
+
+$text-neutral-foreground: #FFFFFF;
+$text-neutral-background: #284FA8;
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 12pt;
+}
+
+a {
+    &:link {
+        color: $link-base;
+    }
+
+    &:active {
+        color: $link-active;
+    }
+
+    &:visited {
+        color: $link-visited;
+    }
+}
+
+
+.title,
+.footer {
+    text-align: center;
+    font-style: italic;
+    margin: 10px 0;
+}
+
+.title {
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.footer {
+    font-size: 12pt;
+    font-weight: normal;
+}
+
+.ruler {
+    background-color: $solid-neutral-foreground;
+    height: 3px;
+    border: 0;
+    margin: 0;
+    clear: both;
+}
+
+.header,
+.value,
+.path {
+    padding: 2px 5px;
+}
+
+.path {
+    font-family: monospace;
+    font-size: 10pt;
+}
+
+.percentage {
+    font-weight: bold;
+}
+
+th.fill-neutral {
+    background-color: $solid-neutral-foreground;
+    color: $text-neutral-foreground;
+}
+
+td {
+    &.fill-neutral {
+        background-color: $solid-neutral-background;
+        color: $text-neutral-background;
+    }
+
+    &.fill-fail {
+        background-color: $solid-fail-background;
+    }
+
+    &.fill-warn {
+        background-color: $solid-warn-background;
+    }
+
+    &.fill-pass {
+        background-color: $solid-pass-background;
+    }
+}
+
+.overview {
+    width: 100%;
+    overflow: hidden;
+
+    .header,
+    .value {
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .header.horizontal {
+        text-align: right;
+    }
+}
+
+.folder-details,
+.folder-coverage,
+.file-details,
+.file-coverage {
+    margin: 10px 10px;
+}
+
+.folder-details,
+.file-details {
+    float: left;
+
+    .value {
+        color: $text-neutral-background;
+    }
+}
+
+.folder-coverage,
+.file-coverage {
+    float: right;
+    width: 50%;
+
+    .value {
+        text-align: right;
+    }
+
+    th {
+        font-weight: normal;
+        font-size: 9pt;
+
+        &:nth-child(1),
+        &:nth-child(4) {
+            width: 30%;
+        }
+
+        &:nth-child(2),
+        &:nth-child(3) {
+            width: 20%;
+        }
+    }
+}
+
+.coverage-list {
+    width: 80%;
+    margin: 20px auto;
+    border: 0;
+
+    th {
+        font-size: 14pt;
+
+        &:nth-child(1) {
+            width: 50%;
+        }
+
+        &:nth-child(2) {
+            width: 30%;
+        }
+
+        &:nth-child(3) {
+            width: 20%;
+        }
+    }
+
+    td:nth-child(n + 2) {
+        width: 10%;
+    }
+
+    .value {
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    .coverage-bar-container {
+        background: #FFFFFF;
+        border: 1px solid #000000;
+        height: 10px;
+        min-width: 40px;
+    }
+
+    .coverage-bar {
+        height: 10px;
+
+        &.pass {
+            background-color: $solid-pass-foreground;
+        }
+
+        &.warn {
+            background-color: $solid-warn-foreground;
+        }
+
+        &.fail {
+            background-color: $solid-fail-foreground;
+        }
+    }
+}
+
+.source-coverage {
+    min-width: 500px;
+    width: 80%;
+    margin: 20px auto;
+
+    thead {
+        th {
+            text-align: left;
+            padding: 0 10px;
+            white-space: pre;
+        }
+
+        .line-number,
+        .line-hit-count {
+            width: 10%;
+        }
+
+        .line-source {
+            width: 80%;
+        }
+    }
+
+    tbody {
+        .line-number,
+        .line-hit-count,
+        .line-source {
+            font-size: 10pt;
+            font-family: monospace;
+            white-space: pre;
+        }
+
+        .line-number {
+            text-align: right;
+            background-color: #EFE393;
+            padding: 0 10px;
+        }
+
+        .line-hit-count {
+            padding: 0 10px;
+            text-align: right;
+        }
+
+        .line-hit-count,
+        .line-source {
+            &.pass {
+                background-color: $opaque-pass-background;
+            }
+
+            &.fail {
+                background-color: $opaque-fail-background;
+            }
+        }
+    }
+}
+
+.source-missing {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 16pt;
+    font-weight: bold;
+}

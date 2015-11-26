@@ -20,6 +20,10 @@
   ],
   "author": "Zachary Cava <technogeek00@gmail.com>",
   "license": "MIT",
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/technogeek00/gulp-lcov-to-html.git"
+  },
   "devDependencies": {
     "coffee-script": "~1.10.0",
     "del": "~2.0.2",

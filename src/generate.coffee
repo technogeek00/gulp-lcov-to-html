@@ -32,9 +32,11 @@ generateTree = (suiteData, tree, curPath = []) ->
         generated = [generateDirectory(suiteData, tree, curPath)]
 
         for name, child of tree.children
-            curPath.push(tree.name)
+            if tree.name isnt ''
+                curPath.push(tree.name)
             generated = generated.concat(generateTree(suiteData, child, curPath))
-            curPath.pop()
+            if tree.name isnt ''
+                curPath.pop()
 
     return generated
 

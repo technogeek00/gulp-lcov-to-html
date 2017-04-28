@@ -1,6 +1,6 @@
 {
   "name": "gulp-lcov-to-html",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Pure javascript implementation of LCOV's genhtml function for use in gulp",
   "main": "lib/index.js",
   "scripts": {

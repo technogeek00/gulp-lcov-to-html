@@ -56,7 +56,7 @@ newDirectory = (name) ->
     }
 
 module.exports = (linearMap) ->
-    tree = newDirectory('')
+    tree = newDirectory('<root>')
 
     # for each piece of data build out the appropriate branches
     for file, info of linearMap

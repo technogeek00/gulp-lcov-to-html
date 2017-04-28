@@ -14,7 +14,7 @@ var stats = info.stats;
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>LCOV - <%= info.name %></title>
-    <link rel="stylesheet" type="text/css" href="<%= new Array(path.length + 1).join("../") %>classic.css">
+    <link rel="stylesheet" type="text/css" href="<%= new Array(path.length).join("../") %>classic.css">
   </head>
 
   <body>
@@ -29,9 +29,9 @@ var stats = info.stats;
           <td class="value">
           <% _.each(path, function(piece, index) {
               if(index != path.length - 1) {
-              %><a href="<%= new Array(path.length - index).join("../") %>index.html"><%= piece %></a> / <%
-               } else { 
-              %><%= piece %><%
+              %><a href="<%= new Array(path.length - index).join("../") %>index.html"><%- piece %></a> / <%
+               } else {
+              %><%- piece %><%
                }
             }) %>
           </td>

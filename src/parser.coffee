@@ -24,10 +24,10 @@ summarizeSection = (section) ->
     else
         section.percentage = -1
 
-module.exports = (data) ->
+module.exports = (data, sourceFiles) ->
     # general state for this data
     testName = null
-    sourceFiles = {}
+    sourceFiles = sourceFiles || {}
 
     # loop temporary holding variable during parsing
     file = null

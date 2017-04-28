@@ -32,11 +32,9 @@ generateTree = (suiteData, tree, curPath = []) ->
         generated = [generateDirectory(suiteData, tree, curPath)]
 
         for name, child of tree.children
-            if tree.name isnt ''
-                curPath.push(tree.name)
+            curPath.push(tree.name)
             generated = generated.concat(generateTree(suiteData, child, curPath))
-            if tree.name isnt ''
-                curPath.pop()
+            curPath.pop()
 
     return generated
 
@@ -61,7 +59,7 @@ generateFile = (suiteData, info, curPath = []) ->
     })
 
     return new gutil.File({
-        path     : curPath.join(path.sep) + ".html"
+        path     : curPath.slice(1).join(path.sep) + ".html"
         contents : new Buffer(html)
     })
 
@@ -95,7 +93,7 @@ generateDirectory = (suiteData, info, curPath = []) ->
     })
 
     return new gutil.File({
-        path     : directoryPath.concat('index.html').join(path.sep)
+        path     : directoryPath.slice(1).concat('index.html').join(path.sep)
         contents : new Buffer(html)
     })
 

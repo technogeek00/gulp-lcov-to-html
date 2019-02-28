@@ -19,8 +19,8 @@ summarizeSection = (section) ->
         section.total = total
 
     # for non-zero counts compute a percentage from 0 to 100 with 1 decimal of precision, otherwise specify -1
-    if total isnt 0
-        section.percentage = Math.round(hit / total * 1000) / 10
+    if section.total isnt 0
+        section.percentage = Math.round(section.hit / section.total * 1000) / 10
     else
         section.percentage = -1
 
